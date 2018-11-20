@@ -4,6 +4,7 @@ import  cannon  from './cannon.png';
 
 export class GameArea {
     
+    public balls: Ball[] = [];
     private angle: number = 90;
     private img: HTMLImageElement;
 
@@ -14,12 +15,9 @@ export class GameArea {
         this.img.src = cannon;
     }
 
-    private start () {
+    public start () {
         document.body.insertBefore(this.canvasArea.canvas, document.body.childNodes[0]);
         this.attachKeyboardHandlers();
-    }
-
-    public buildElements() {
     }
 
     public drawBall(ball: Ball) {
@@ -43,14 +41,18 @@ export class GameArea {
 
     public attachKeyboardHandlers () {
         window.addEventListener('keydown', (e) => {
-            if(e.keyCode == 39) {
+            if(e.keyCode === 39) {
                 this.recalculateCannonPosition(3);
             }
-            else if(e.keyCode == 37) {
+            else if(e.keyCode === 37) {
                 this.recalculateCannonPosition(-3);
             }
-        }
-        )
+        });
+        window.addEventListener('keyup', (e) => {
+            if(e.keyCode === 32) {
+                this.balls.push(new Ball(240, 600, 10, "green", -2, -2));
+            }
+        });
     }
 
     public recalculateCannonPosition (angleDelta: number) {
@@ -67,9 +69,9 @@ export class GameArea {
     }
 
     public recalculatePosition(ball: Ball) {
-        let x = ball.x;
-        let y = ball.y;
-        let r = ball.r;
+        const x = ball.x;
+        const y = ball.y;
+        const r = ball.r;
         const width = this.canvasArea.canvas.width;
         const height = this.canvasArea.canvas.height;
 
