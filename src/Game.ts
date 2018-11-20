@@ -32,8 +32,7 @@ export class GameArea {
         this.clearArea();
         this.canvasArea.context.save();
         this.canvasArea.context.translate(240,615);
-       this.canvasArea.context.rotate(this.angle*Math.PI/180);
-        // this.canvasArea.context.translate(-240,-240);
+        this.canvasArea.context.rotate(this.angle*Math.PI/180);
         this.canvasArea.context.drawImage(this.img as HTMLImageElement, -25, -25, 50, 50);
         this.canvasArea.context.restore();
 
@@ -50,7 +49,8 @@ export class GameArea {
         });
         window.addEventListener('keyup', (e) => {
             if(e.keyCode === 32) {
-                this.balls.push(new Ball(240, 600, 10, "green", -2, -2));
+                this.balls.push(new Ball(240, 600, 10, "green", -2 * Math.cos(this.angle * Math.PI/180), -2 *  Math.sin(this.angle * Math.PI/180)));
+                console.log(this.balls);
             }
         });
     }
@@ -61,9 +61,8 @@ export class GameArea {
           this.canvasArea.context.save();
           this.canvasArea.context.translate(240,615);
           this.canvasArea.context.rotate(this.angle * Math.PI/180);
-        //    this.canvasArea.context.translate(-240,-240);
-        this.canvasArea.context.drawImage(this.img as HTMLImageElement, -25, -25, 50, 50);
-           this.canvasArea.context.restore();
+          this.canvasArea.context.drawImage(this.img as HTMLImageElement, -25, -25, 50, 50);
+          this.canvasArea.context.restore();
       }  
         
     }
