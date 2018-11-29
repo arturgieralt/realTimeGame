@@ -1,13 +1,17 @@
+import 'reflect-metadata';
 import { Game } from './Game';
 // import { Ball } from './Ball';
-import { Area } from './Area';
 import { Ball } from './Ball';
 import { Player } from './Player';
 import { Cannon } from './Cannon';
 import { Tower } from './Tower';
 import { BallBuilder } from './BallBuilder';
+import { gameContainer } from './IoC/inversify.config';
+import { IArea } from './IArea';
+import { TYPES } from './IoC/types';
 
-const area = new Area();
+
+const area = gameContainer.get<IArea>(TYPES.Area);
 const towers = [new Tower(50, 0), new Tower(150, 0), new Tower(250, 0), new Tower(350, 0)];
 const cannon = new Cannon(240, 520);
 const ballBuilder = new BallBuilder().setPosition(240, 490).setRadius(10).setColor("yellow");

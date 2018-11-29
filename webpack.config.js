@@ -30,12 +30,16 @@ module.exports = {
       {
         test: /\.tsx?$/,
         exclude: '/node_modules/',
-        loader: 'babel-loader',
+        loader: 'ts-loader',
       },
       {
         enforce: 'pre',
         test: /\.js$/,
         loader: 'source-map-loader',
+        exclude: [
+          // instead of /\/node_modules\//
+          path.join(process.cwd(), 'node_modules')
+        ]
       },
       {
         test: /\.scss$/,

@@ -1,6 +1,6 @@
 import { Area } from "./Area";
 import { Player } from "./Player";
-import  cannon  from './cannon.png';
+import  * as cannon  from './cannon.png';
 
 export class Cannon {
     private img: HTMLImageElement;

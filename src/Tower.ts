@@ -1,5 +1,5 @@
 import { Area } from "./Area";
-import  tower  from './TowerBorder.png';
+import  * as tower  from './TowerBorder.png';
 
 export class Tower {
     private img: HTMLImageElement;
