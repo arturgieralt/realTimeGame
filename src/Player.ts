@@ -1,7 +1,7 @@
-import { Ball } from "./Ball";
-import { Cannon } from "./Cannon";
-import { Tower } from "./Tower";
-import { BallBuilder } from "./BallBuilder";
+import { Ball } from "./Models/Ball/Ball";
+import { Cannon } from "./Models/Cannon/Cannon";
+import { Tower } from "./Models/Tower/Tower";
+import { BallBuilder } from "./Models/Ball/BallBuilder";
 
 export class Player {
     public balls: Ball[] = [];

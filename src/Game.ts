@@ -1,8 +1,8 @@
-import { Ball } from './Ball';
-import { Area } from './Area';
+import { Ball } from './Models/Ball/Ball';
+import { Area } from './Models/Area/Area';
 
 import { Player } from './Player';
-import { Tower } from './Tower';
+import { Tower } from './Models/Tower/Tower';
 
 export class Game {
     

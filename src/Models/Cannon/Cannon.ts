@@ -1,5 +1,5 @@
-import { Area } from "./Area";
-import { Player } from "./Player";
+import { Area } from "../Area/Area";
+import { Player } from "../../Player";
 import  * as cannon  from './cannon.png';
 
 export class Cannon {

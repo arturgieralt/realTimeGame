@@ -1,13 +1,13 @@
 import 'reflect-metadata';
 import { Game } from './Game';
 // import { Ball } from './Ball';
-import { Ball } from './Ball';
+import { Ball } from './Models/Ball/Ball';
 import { Player } from './Player';
-import { Cannon } from './Cannon';
-import { Tower } from './Tower';
-import { BallBuilder } from './BallBuilder';
+import { Cannon } from './Models/Cannon/Cannon';
+import { Tower } from './Models/Tower/Tower';
+import { BallBuilder } from './Models/Ball/BallBuilder';
 import { gameContainer } from './IoC/inversify.config';
-import { IArea } from './IArea';
+import { IArea } from './Models/Area/IArea';
 import { TYPES } from './IoC/types';
 
 

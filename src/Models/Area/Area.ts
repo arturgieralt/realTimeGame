@@ -1,6 +1,6 @@
 import { injectable, inject } from "inversify";
-import { IAreaConfiguration } from "./Configurations/IConfiguration";
-import { TYPES } from "./IoC/types";
+import { IAreaConfiguration } from "../../Configurations/IConfiguration";
+import { TYPES } from "../../IoC/types";
 import { IArea } from "./IArea";
 
 @injectable()
