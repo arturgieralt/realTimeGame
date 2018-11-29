@@ -1,3 +1,25 @@
 {
-    "extends": ["tslint:recommended"]
+  "extends": [
+      "tslint:recommended",
+      "tslint-config-prettier"
+  ],
+  "rules": {
+      "ordered-imports": false,
+      "object-literal-sort-keys": false,
+      "interface-over-type-literal": false,
+      "curly": [
+          true,
+          "ignore-same-line"
+      ],
+      "max-classes-per-file": false, // [true, 1]
+      "no-console": false,
+      "jsx-no-lambda": false,
+  },
+  "linterOptions": {
+      "exclude": [
+          "node_modules/**/*.ts",
+          "*.js",
+          "*.json"
+      ]
   }
+}
