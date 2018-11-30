@@ -13,6 +13,7 @@ export interface IDrawCircleConfiguration {
 export interface IBallConfiguration {
     xStartingPosition: number;
     yStartingPosition: number;
+    radius: number;
     color: string;
     xSpeed: number;
     ySpeed: number;
@@ -30,8 +31,6 @@ export interface ICannonConfiguration {
 }
 
 export interface ITowerConfiguration {
-    xStartingPosition: number;
-    yStartingPosition: number;
     height: number;
     width: number;
     lifes: number;

@@ -1,11 +1,11 @@
 import { Ball } from "./Models/Ball/Ball";
 import { Cannon } from "./Models/Cannon/Cannon";
-import { Tower } from "./Models/Tower/Tower";
-import { BallBuilder } from "./Models/Ball/BallBuilder";
+import { IBallBuilder } from "./Builders/IBallBuilder";
+import { ITower } from "./Models/Tower/ITower";
 
 export class Player {
     public balls: Ball[] = [];
-    constructor (public towers: Tower[], public cannon: Cannon, private ballBuilder: BallBuilder, public angle: number = 90 ) {
+    constructor (public towers: ITower[], public cannon: Cannon, private ballBuilder: IBallBuilder, public angle: number = 90 ) {
     }
 
     /// I can add ball factory here so I just inject ball factory with settings but angle is dynamic
