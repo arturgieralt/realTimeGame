@@ -1,5 +1,7 @@
-import { IArea } from "../Area/IArea";
-
 export interface ITower {
-    draw(canvas: IArea): void;
+    xPosition: number;
+    yPosition: number;
+    height: number;
+    width: number;
+    lifes: number;
 }

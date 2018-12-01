@@ -2,34 +2,21 @@ import { injectable, inject, interfaces} from "inversify";
 import { TYPES } from "../IoC/types";
 import { IBall } from "../Models/Ball/IBall";
 import { IBallBuilder } from "./IBallBuilder";
+import { IBallConfiguration } from "../Configurations/IConfiguration";
 
 @injectable()
 export class BallBuilder implements IBallBuilder {
 
-    private x: number;
-    private y: number;
-    private r: number;
-    private a: number
-    private color: string;
+    private config: IBallConfiguration;
     private ballNewable: interfaces.Newable<IBall>;
+    private a: number;
 
     constructor (@inject(TYPES.BallNewable) ball: interfaces.Newable<IBall>) {
         this.ballNewable = ball;
     }
 
-    public setPosition (x: number, y: number){
-        this.x = x;
-        this.y = y;
-        return this;
-    }
-
-    public setColor (color: string){
-        this.color = color;
-        return this;
-    }
-
-    public setRadius (radius: number){
-        this.r = radius;
+    public setConfig (config: IBallConfiguration){
+        this.config = config;
         return this;
     }
 
@@ -39,7 +26,7 @@ export class BallBuilder implements IBallBuilder {
     }
 
     public build() {
-        return new this.ballNewable(this.x, this.y, this.r, this.color, -2 * Math.cos(this.a * Math.PI/180), -2 *  Math.sin(this.a * Math.PI/180));
+        return new this.ballNewable(this.config.xStartingPosition, this.config.yStartingPosition, this.config.radius, this.config.color, this.config.xSpeed * Math.cos(this.a * Math.PI/180), this.config.ySpeed *  Math.sin(this.a * Math.PI/180));
     }
 
 }

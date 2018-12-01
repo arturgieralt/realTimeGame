@@ -16,11 +16,6 @@ class Area implements IArea{
         this.canvas.height = areaConfig.height;
         this.canvas.id = areaConfig.id;
     }
-
-    public clear () {
-        this.context.clearRect(0,0, this.canvas.width, this.canvas.height);
-    }
-
 }
 
 export { Area };

@@ -1,9 +1,8 @@
 import { IBall } from "../Models/Ball/IBall";
+import { IBallConfiguration } from "../Configurations/IConfiguration";
 
 export interface IBallBuilder {
-    setPosition (x: number, y: number):  IBallBuilder;
-    setColor (color: string): IBallBuilder;
-    setRadius (radius: number): IBallBuilder;
+    setConfig (config: IBallConfiguration): IBallBuilder;
     setAngle (angle: number): IBallBuilder;
     build() : IBall;
 

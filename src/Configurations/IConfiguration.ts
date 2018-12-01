@@ -20,12 +20,11 @@ export interface IBallConfiguration {
 }
 
 export interface ICannonConfiguration {
-    xStartingPosition: number;
-    yStartingPosition: number;
-    angleStarting: number;
+    xPosition: number;
+    yPosition: number;
     height: number;
     width: number;
-    rotationFactor: number;
+    angle: number;
     minAngle: number;
     maxAngle: number;
 }

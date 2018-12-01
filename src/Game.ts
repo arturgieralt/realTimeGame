@@ -1,28 +1,30 @@
 import { Ball } from './Models/Ball/Ball';
-import { Area } from './Models/Area/Area';
-
 import { Player } from './Player';
 import { Tower } from './Models/Tower/Tower';
+import { IRenderEngine } from './Game/Render/IRenderEngine';
+import { IPhysicsEngine } from './Game/Physics/IPhysicsEngine';
+import { ITower } from './Models/Tower/ITower';
+import { IBall } from './Models/Ball/IBall';
 
 export class Game {
     
-    constructor(private canvasArea: Area, public playerOne: Player, public playerTwo: Player){
+    constructor(private renderEngine: IRenderEngine, private physicsEngine: IPhysicsEngine,  public playerOne: Player, public playerTwo: Player){
         this.start();
         
     }
 
     public start () {
-        document.body.insertBefore(this.canvasArea.canvas, document.body.childNodes[0]);
+        document.body.insertBefore(this.renderEngine.area.canvas, document.body.childNodes[0]);
         this.attachKeyboardHandlers();
     }
 
     public attachKeyboardHandlers () {
         window.addEventListener('keydown', (e) => {
             if(e.keyCode === 68) {
-                this.playerTwo.angle = - this.playerTwo.cannon.recalculatePosition(Math.abs(this.playerTwo.angle), 3);
+                this.physicsEngine.recalculatePositionOfCannon(this.playerTwo.cannon, 3);
             }
             else if(e.keyCode === 65) {
-                this.playerTwo.angle = - this.playerTwo.cannon.recalculatePosition(Math.abs(this.playerTwo.angle), -3);
+                this.physicsEngine.recalculatePositionOfCannon(this.playerTwo.cannon, - 3);
             }
         });
         window.addEventListener('keyup', (e) => {
@@ -32,10 +34,10 @@ export class Game {
         });
         window.addEventListener('keydown', (e) => {
             if(e.keyCode === 39) {
-                this.playerOne.angle = this.playerOne.cannon.recalculatePosition(Math.abs(this.playerOne.angle), 3);
+                this.physicsEngine.recalculatePositionOfCannon(this.playerOne.cannon, 3);
             }
             else if(e.keyCode === 37) {
-                this.playerOne.angle = this.playerOne.cannon.recalculatePosition(Math.abs(this.playerOne.angle), -3);
+                this.physicsEngine.recalculatePositionOfCannon(this.playerOne.cannon,-3);
             }
         });
         window.addEventListener('keyup', (e) => {
@@ -45,31 +47,31 @@ export class Game {
         });
     }
 
-    public recalculatePosition(ball: Ball) {
-        ball.recalculatePosition(this.canvasArea.canvas.width, this.canvasArea.canvas.height );
+    public recalculatePosition(ball: IBall) {
+        this.physicsEngine.recalculatePositionOfBall(ball);
     }
 
     public clearArea () {
-        this.canvasArea.clear();
+        this.renderEngine.clear();
     }
 
     public drawTower() {
-        this.playerOne.towers.forEach((tower: Tower) => {
-            tower.draw(this.canvasArea);
+        this.playerOne.towers.forEach((tower: ITower) => {
+            this.renderEngine.drawTower(tower);
         });
-        this.playerTwo.towers.forEach((tower: Tower) => {
-            tower.draw(this.canvasArea);
+        this.playerTwo.towers.forEach((tower: ITower) => {
+            this.renderEngine.drawTower(tower);
         });
     }
 
     public drawCannon () {
-        this.playerOne.cannon.draw(this.canvasArea, this.playerOne);
-        this.playerTwo.cannon.draw(this.canvasArea, this.playerTwo);
+        this.renderEngine.drawCannon(this.playerOne.cannon);
+        this.renderEngine.drawCannon(this.playerTwo.cannon);
     }
 
 
-    public drawBall(ball: Ball) {
-        ball.draw(this.canvasArea);
+    public drawBall(ball: IBall) {
+        this.renderEngine.drawBall(ball);
     }
 
     public detectCollisions () {

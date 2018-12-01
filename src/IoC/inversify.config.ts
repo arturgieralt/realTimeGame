@@ -1,7 +1,7 @@
 import { Container, interfaces } from "inversify";
 import { TYPES } from "./types";
-import { IAreaConfiguration, ITowerConfiguration } from "../Configurations/IConfiguration";
-import { AreaConfiguration, TowerConfiguration } from "../Configurations/Configuration";
+import { IAreaConfiguration, ITowerConfiguration, IBallConfiguration, ICannonConfiguration } from "../Configurations/IConfiguration";
+import { AreaConfiguration, TowerConfiguration, BallOneConfig, BallTwoConfig, CannonOneConfig, CannonTwoConfig } from "../Configurations/Configuration";
 import { Area } from "../Models/Area/Area";
 import { IArea } from "../Models/Area/IArea";
 import { IBall } from "../Models/Ball/IBall";
@@ -12,6 +12,14 @@ import { ITower } from "../Models/Tower/ITower";
 import { Tower } from "../Models/Tower/Tower";
 import { ITowerBuilder } from "../Builders/ITowerBuilder";
 import { TowerBuilder } from "../Builders/TowerBuilder";
+import { ICannon } from "../Models/Cannon/ICannon";
+import { Cannon } from "../Models/Cannon/Cannon";
+import { ICannonBuilder } from "../Builders/ICannonBuilder";
+import { CannonBuilder } from "../Builders/CannonBuilder";
+import { IRenderEngine } from "../Game/Render/IRenderEngine";
+import { RenderEngine } from "../Game/Render/RenderEngine";
+import { IPhysicsEngine } from "../Game/Physics/IPhysicsEngine";
+import { PhysicsEngine } from "../Game/Physics/PhysicsEngine";
 
 export const gameContainer = new Container();
 
@@ -22,7 +30,20 @@ gameContainer.bind<IBall>(TYPES.Ball).to(Ball);
 gameContainer.bind<interfaces.Newable<IBall>>(TYPES.BallNewable).toConstructor<IBall>(Ball);
 gameContainer.bind<IBallBuilder>(TYPES.BallBuilder).to(BallBuilder);
 
+gameContainer.bind<IBallConfiguration>(TYPES.BallOneConfig).to(BallOneConfig);
+gameContainer.bind<IBallConfiguration>(TYPES.BallTwoConfig).to(BallTwoConfig);
+
+gameContainer.bind<ICannonConfiguration>(TYPES.CannonOneConfig).to(CannonOneConfig);
+gameContainer.bind<ICannonConfiguration>(TYPES.CannonTwoConfig).to(CannonTwoConfig);
+
+gameContainer.bind<interfaces.Newable<ICannon>>(TYPES.CannonNewable).toConstructor<ICannon>(Cannon);
+gameContainer.bind<ICannon>(TYPES.Cannon).to(Cannon);
+gameContainer.bind<ICannonBuilder>(TYPES.CannonBuilder).to(CannonBuilder);
+
 gameContainer.bind<ITowerConfiguration>(TYPES.TowerConfig).to(TowerConfiguration);
 gameContainer.bind<ITower>(TYPES.Tower).to(Tower);
 gameContainer.bind<interfaces.Newable<ITower>>(TYPES.TowerNewable).toConstructor<ITower>(Tower);
 gameContainer.bind<ITowerBuilder>(TYPES.TowerBuilder).to(TowerBuilder);
+
+gameContainer.bind<IRenderEngine>(TYPES.RenderEngine).to(RenderEngine);
+gameContainer.bind<IPhysicsEngine>(TYPES.PhysicsEngine).to(PhysicsEngine);

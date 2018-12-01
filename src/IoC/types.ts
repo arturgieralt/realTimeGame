@@ -7,5 +7,14 @@ export const TYPES = {
     Tower: Symbol.for("Tower"),
     TowerNewable: Symbol.for("TowerNewable"),
     TowerBuilder: Symbol.for("TowerBuilder"),
-    TowerConfig: Symbol.for("TowerConfig")
+    TowerConfig: Symbol.for("TowerConfig"),
+    BallOneConfig: Symbol.for("BallOneConfig"),
+    BallTwoConfig: Symbol.for("BallTwoConfig"),
+    CannonNewable: Symbol.for("CannonNewable"),
+    CannonOneConfig: Symbol.for("CannonOneConfig"),
+    CannonTwoConfig: Symbol.for("CannonTwoConfig"),
+    Cannon: Symbol.for("Cannon"),
+    CannonBuilder: Symbol.for("CannonBuilder"),
+    RenderEngine: Symbol.for("RenderEngine"),
+    PhysicsEngine: Symbol.for("PhysicsEngine"),
 }
