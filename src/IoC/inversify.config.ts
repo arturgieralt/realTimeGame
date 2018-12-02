@@ -18,8 +18,12 @@ import { ICannonBuilder } from "../Builders/ICannonBuilder";
 import { CannonBuilder } from "../Builders/CannonBuilder";
 import { IRenderEngine } from "../Game/Render/IRenderEngine";
 import { RenderEngine } from "../Game/Render/RenderEngine";
-import { IPhysicsEngine } from "../Game/Physics/IPhysicsEngine";
-import { PhysicsEngine } from "../Game/Physics/PhysicsEngine";
+import { IGlobalStateManager } from "../Game/GlobalStateManager/IGlobalStateManager";
+import { GlobalStateManager } from "../Game/GlobalStateManager/GlobalStateManager";
+import { IPlayerState } from "../State/IPlayerState";
+import { PlayerStateManager } from "../State/PlayerStateManager";
+import { IPlayerStateManager } from "../State/IPlayerStateManager";
+import { PlayerState } from "../State/PlayerState";
 
 export const gameContainer = new Container();
 
@@ -46,4 +50,8 @@ gameContainer.bind<interfaces.Newable<ITower>>(TYPES.TowerNewable).toConstructor
 gameContainer.bind<ITowerBuilder>(TYPES.TowerBuilder).to(TowerBuilder);
 
 gameContainer.bind<IRenderEngine>(TYPES.RenderEngine).to(RenderEngine);
-gameContainer.bind<IPhysicsEngine>(TYPES.PhysicsEngine).to(PhysicsEngine);
+gameContainer.bind<IGlobalStateManager>(TYPES.GlobalStateManager).to(GlobalStateManager);
+
+gameContainer.bind<IPlayerState>(TYPES.PlayerState).to(PlayerState);
+gameContainer.bind<IPlayerStateManager>(TYPES.PlayerStateManager).to(PlayerStateManager);
+gameContainer.bind<interfaces.Newable<IPlayerState>>(TYPES.PlayerStateNewable).toConstructor<IPlayerState>(PlayerState);

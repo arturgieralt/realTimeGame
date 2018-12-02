@@ -16,5 +16,8 @@ export const TYPES = {
     Cannon: Symbol.for("Cannon"),
     CannonBuilder: Symbol.for("CannonBuilder"),
     RenderEngine: Symbol.for("RenderEngine"),
-    PhysicsEngine: Symbol.for("PhysicsEngine"),
+    GlobalStateManager: Symbol.for("GlobalStateManager"),
+    PlayerStateManager: Symbol.for("PlayerStateManager"),
+    PlayerStateNewable: Symbol.for("PlayerStateNewable"),
+    PlayerState:  Symbol.for("PlayerState"),
 }
