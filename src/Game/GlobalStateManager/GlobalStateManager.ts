@@ -5,7 +5,7 @@ import { ICannon } from "../../Models/Cannon/ICannon";
 import { IAreaConfiguration } from "../../Configurations/IConfiguration";
 import { IGlobalStateManager } from "./IGlobalStateManager";
 import { ITower } from "../../Models/Tower/ITower";
-import { IPlayerStateManager } from "../../State/IPlayerStateManager";
+import { IPlayerStateManager } from "../PlayerState/IPlayerStateManager";
 
 @injectable()
 export class GlobalStateManager implements IGlobalStateManager{

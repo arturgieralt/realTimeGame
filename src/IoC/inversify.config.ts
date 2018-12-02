@@ -20,10 +20,10 @@ import { IRenderEngine } from "../Game/Render/IRenderEngine";
 import { RenderEngine } from "../Game/Render/RenderEngine";
 import { IGlobalStateManager } from "../Game/GlobalStateManager/IGlobalStateManager";
 import { GlobalStateManager } from "../Game/GlobalStateManager/GlobalStateManager";
-import { IPlayerState } from "../State/IPlayerState";
-import { PlayerStateManager } from "../State/PlayerStateManager";
-import { IPlayerStateManager } from "../State/IPlayerStateManager";
-import { PlayerState } from "../State/PlayerState";
+import { IPlayerState } from "../Game/PlayerState/IPlayerState";
+import { PlayerStateManager } from "../Game/PlayerState/PlayerStateManager";
+import { IPlayerStateManager } from "../Game/PlayerState/IPlayerStateManager";
+import { PlayerState } from "../Game/PlayerState/PlayerState";
 
 export const gameContainer = new Container();
 

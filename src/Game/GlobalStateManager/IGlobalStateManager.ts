@@ -1,6 +1,6 @@
 import { IBall } from "../../Models/Ball/IBall";
 import { ICannon } from "../../Models/Cannon/ICannon";
-import { IPlayerStateManager } from "../../State/IPlayerStateManager";
+import { IPlayerStateManager } from "../PlayerState/IPlayerStateManager";
 
 export interface IGlobalStateManager {
     playerManagerOne: IPlayerStateManager;

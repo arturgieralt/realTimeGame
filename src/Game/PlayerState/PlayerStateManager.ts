@@ -1,14 +1,12 @@
 import { inject, interfaces, injectable } from "inversify";
-
-import { TYPES } from "../IoC/types";
-
-import { IBall } from "../Models/Ball/IBall";
-import { ITowerBuilder } from "../Builders/ITowerBuilder";
-import { IPlayerState } from "./IPlayerState";
-import { IBallBuilder } from "../Builders/IBallBuilder";
-import { ICannonBuilder } from "../Builders/ICannonBuilder";
-import { IBallConfiguration, ICannonConfiguration } from "../Configurations/IConfiguration";
 import { IPlayerStateManager } from "./IPlayerStateManager";
+import { IPlayerState } from "./IPlayerState";
+import { IBallConfiguration, ICannonConfiguration } from "../../Configurations/IConfiguration";
+import { TYPES } from "../../IoC/types";
+import { ITowerBuilder } from "../../Builders/ITowerBuilder";
+import { IBallBuilder } from "../../Builders/IBallBuilder";
+import { ICannonBuilder } from "../../Builders/ICannonBuilder";
+import { IBall } from "../../Models/Ball/IBall";
 
 @injectable()
 export class PlayerStateManager implements IPlayerStateManager {

@@ -44,46 +44,21 @@ export class Game {
         });
     }
 
-    public recalculatePosition(ball: IBall) {
-        this.globalManager.recalculatePositionOfBall(ball);
-    }
-
-    public clearArea () {
+    public repaint() {
         this.renderEngine.clear();
-    }
-
-    public drawTower() {
+        this.globalManager.detectCollisions();
+        this.renderEngine.drawCannon(this.globalManager.playerManagerOne.playerState.cannon);
+        this.renderEngine.drawCannon(this.globalManager.playerManagerTwo.playerState.cannon);
         this.globalManager.playerManagerOne.playerState.towers.forEach((tower: ITower) => {
             this.renderEngine.drawTower(tower);
         });
         this.globalManager.playerManagerTwo.playerState.towers.forEach((tower: ITower) => {
             this.renderEngine.drawTower(tower);
         });
-    }
-
-    public drawCannon () {
-        this.renderEngine.drawCannon(this.globalManager.playerManagerOne.playerState.cannon);
-        this.renderEngine.drawCannon(this.globalManager.playerManagerTwo.playerState.cannon);
-    }
-
-
-    public drawBall(ball: IBall) {
-        this.renderEngine.drawBall(ball);
-    }
-
-    public detectCollisions () {
-        this.globalManager.detectCollisions();
-    }
-
-    public repaint() {
-        this.clearArea();
-        this.drawCannon();
-        this.drawTower();
-        this.globalManager.playerManagerOne.playerState.balls.forEach((currball: IBall) => this.recalculatePosition(currball));
-        this.globalManager.playerManagerOne.playerState.balls.forEach((currball: IBall) => this.drawBall(currball));
-        this.globalManager.playerManagerTwo.playerState.balls.forEach((currball: IBall) => this.recalculatePosition(currball));
-        this.globalManager.playerManagerTwo.playerState.balls.forEach((currball: IBall) => this.drawBall(currball));
-        this.detectCollisions();
+        this.globalManager.playerManagerOne.playerState.balls.forEach((currball: IBall) => this.globalManager.recalculatePositionOfBall(currball));
+        this.globalManager.playerManagerOne.playerState.balls.forEach((currball: IBall) => this.renderEngine.drawBall(currball));
+        this.globalManager.playerManagerTwo.playerState.balls.forEach((currball: IBall) => this.globalManager.recalculatePositionOfBall(currball));
+        this.globalManager.playerManagerTwo.playerState.balls.forEach((currball: IBall) => this.renderEngine.drawBall(currball));
     }
 
 

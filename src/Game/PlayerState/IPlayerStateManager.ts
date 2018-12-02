@@ -1,4 +1,4 @@
-import { IBallConfiguration, ICannonConfiguration } from "../Configurations/IConfiguration";
+import { IBallConfiguration, ICannonConfiguration } from "../../Configurations/IConfiguration";
 import { IPlayerState } from "./IPlayerState";
 
 export interface IPlayerStateManager {

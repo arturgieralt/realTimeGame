@@ -5,7 +5,7 @@ import { TYPES } from './IoC/types';
 import { playerTwoTowersPositions, playerOneTowersPositions } from './Configurations/Configuration';
 import { IBallConfiguration, ICannonConfiguration } from './Configurations/IConfiguration';
 import { IRenderEngine } from './Game/Render/IRenderEngine';
-import { IPlayerStateManager } from './State/IPlayerStateManager';
+import { IPlayerStateManager } from './Game/PlayerState/IPlayerStateManager';
 import { IGlobalStateManager } from './Game/GlobalStateManager/IGlobalStateManager';
 
 

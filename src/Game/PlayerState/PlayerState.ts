@@ -1,8 +1,8 @@
 import { IPlayerState } from "./IPlayerState";
-import { IBall } from "../Models/Ball/IBall";
-import { ICannon } from "../Models/Cannon/ICannon";
-import { ITower } from "../Models/Tower/ITower";
 import { injectable } from "inversify";
+import { IBall } from "../../Models/Ball/IBall";
+import { ITower } from "../../Models/Tower/ITower";
+import { ICannon } from "../../Models/Cannon/ICannon";
 
 @injectable()
 export class PlayerState implements IPlayerState{
